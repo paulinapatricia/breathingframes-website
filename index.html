@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Breathing Frames – Cineastische Immobilienfilme</title>
+<meta name="description" content="Cineastische Immobilienfilme aus Ihren Fotos – für Villen, Ferienhäuser und Airbnbs. Kein Filmteam, kein Drehtag.">
+<meta name="theme-color" content="#42413f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-6 -6 126 112'%3E%3Crect x='-6' y='-6' width='126' height='112' rx='18' fill='%23f4f0e8'/%3E%3Cg fill='none' stroke='%23b68d5b' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M100 58V0H0v100h100V82'/%3E%3Cpath d='M16 52 50 22l34 30'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/orbit/000.webp">
+<style>
+:root{
+  /* brand palette: charcoal #42413f · gold #b68d5b · sand #bdac8f · cream #f4f0e8 · light cream #ece3d6 */
+  --ink:#42413f; --gold:#b68d5b; --sand:#bdac8f; --cream:#f4f0e8; --cream-2:#ece3d6;
+  --text:#42413f; --muted:rgba(66,65,63,.78); --line:rgba(66,65,63,.14);
+  --serif:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --sans:"Montserrat",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+  --wrap:1180px; --pad:clamp(20px,5vw,56px); --nav:84px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent;scroll-padding-top:var(--nav)}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+.lenis.lenis-stopped{overflow:hidden}
+body{margin:0;background:var(--cream);color:var(--text);font:400 17px/1.65 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
+img,video,canvas,svg{display:block;max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit}
+::selection{background:var(--gold);color:var(--cream)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 var(--pad)}
+.skip{position:absolute;left:12px;top:-60px;background:var(--gold);color:var(--cream);padding:10px 16px;z-index:300;border-radius:8px;text-decoration:none;font-weight:600}
+.skip:focus{top:12px}
+.vh{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* type */
+.eyebrow{font:600 .74rem/1.2 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin:0 0 18px}
+.headline{font-family:var(--serif);font-weight:600;color:var(--ink);letter-spacing:-.012em;line-height:1.02;margin:0;text-wrap:balance}
+.h1{font-size:clamp(3.4rem,10.5vw,9.6rem);line-height:.92}
+.h2{font-size:clamp(2.6rem,6.6vw,5.8rem)}
+.h3{font-size:clamp(2rem,4.2vw,3.4rem)}
+.headline em{font-style:italic;color:var(--gold)}
+.sub{font-size:clamp(1.05rem,1.6vw,1.3rem);font-weight:400;color:var(--muted);line-height:1.6;margin:22px auto 0;max-width:46ch;text-wrap:pretty}
+.center{text-align:center}
+.center .sub{margin-left:auto;margin-right:auto}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 26px;border-radius:999px;border:0;background:var(--gold);color:var(--cream);font:600 .86rem/1 var(--sans);letter-spacing:.04em;text-decoration:none;cursor:pointer;transition:transform .18s var(--ease),background .25s ease,box-shadow .3s ease;touch-action:manipulation;user-select:none}
+.btn svg{width:15px;height:15px;transition:transform .3s var(--ease)}
+.btn:active{transform:scale(.97)}
+.btn.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1.5px rgba(66,65,63,.28)}
+.link{display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:600;text-decoration:none;font-size:1rem}
+.link svg{width:14px;height:14px;transition:transform .3s var(--ease)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover{background:var(--ink);box-shadow:0 10px 26px -12px rgba(66,65,63,.7)}
+  .btn.ghost:hover{background:rgba(66,65,63,.06);box-shadow:inset 0 0 0 1.5px var(--ink)}
+  .btn:hover svg,.link:hover svg{transform:translateX(4px)}
+  .link:hover{text-decoration:underline;text-underline-offset:4px}
+}
+
+/* header (original layout) */
+.nav{position:fixed;inset:0 0 auto;z-index:100;background:rgba(66,65,63,.96);-webkit-backdrop-filter:saturate(1.2) blur(10px);backdrop-filter:saturate(1.2) blur(10px);transition:box-shadow .3s ease}
+.nav.scrolled{box-shadow:0 10px 30px -18px rgba(66,65,63,.9)}
+.nav .bar{display:flex;align-items:center;gap:24px;height:var(--nav);transition:height .3s var(--ease)}
+.nav.scrolled .bar{height:68px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--gold);flex-shrink:0}
+.brand svg{width:44px;height:auto;aspect-ratio:120/104;transition:width .3s var(--ease)}
+.nav.scrolled .brand svg{width:38px}
+.brand .bt{display:flex;flex-direction:column;line-height:1}
+.brand .b1{font:600 clamp(1.25rem,2.2vw,1.75rem)/1 var(--serif);color:var(--gold);letter-spacing:.02em}
+.brand .b2{font:400 clamp(.58rem,.9vw,.72rem)/1 var(--sans);letter-spacing:.06em;margin-top:5px;text-transform:uppercase;color:var(--cream)}
+.menu{margin-left:auto;display:flex;align-items:center;gap:6px}
+.menu .sep{width:1.5px;height:40px;background:var(--gold);margin-right:14px;opacity:.9}
+.menu a.nl{position:relative;text-decoration:none;color:var(--cream);font-weight:600;font-size:.88rem;padding:10px 12px;letter-spacing:.01em}
+.menu a.nl::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:1.5px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease)}
+.menu a.nl.active::after{transform:scaleX(1)}
+.menu .cta{background:var(--gold);color:var(--cream);border-radius:6px;padding:9px 14px;margin-left:6px;text-decoration:none;font-weight:600;font-size:.88rem;transition:background .25s}
+@media (hover:hover) and (pointer:fine){.menu a.nl:hover::after{transform:scaleX(1)}.menu .cta:hover{background:var(--cream);color:var(--ink)}}
+.lang{display:flex;align-items:center;background:rgba(244,240,232,.08);border-radius:999px;padding:3px;margin-left:10px}
+.lang button{border:0;background:transparent;color:var(--cream);font:600 .74rem/1 var(--sans);letter-spacing:.08em;padding:9px 11px;border-radius:999px;cursor:pointer;min-height:36px;touch-action:manipulation}
+.lang button[aria-pressed="true"]{background:var(--gold);color:var(--cream)}
+.burger{display:none;margin-left:auto;width:48px;height:48px;border:0;background:transparent;cursor:pointer;position:relative}
+.burger span{position:absolute;left:12px;right:12px;height:1.5px;background:var(--cream);transition:transform .35s var(--ease),opacity .2s}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:24px}.burger span:nth-child(3){top:30px}
+.menu-open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.menu-open .burger span:nth-child(2){opacity:0}
+.menu-open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+.mobile-menu{position:fixed;inset:0;z-index:90;background:var(--ink);display:flex;flex-direction:column;justify-content:center;padding:100px var(--pad) 40px;clip-path:inset(0 0 100% 0);transition:clip-path .6s var(--ease);visibility:hidden}
+.menu-open .mobile-menu{clip-path:inset(0 0 0 0);visibility:visible}
+.mobile-menu a{font:600 clamp(2.2rem,9vw,3.4rem)/1.15 var(--serif);color:var(--cream);text-decoration:none;text-transform:uppercase;padding:6px 0}
+.mobile-menu a.mm-cta{color:var(--gold)}
+.mobile-menu .lang{margin:28px 0 0;align-self:flex-start}
+@media (max-width:1020px){.menu{display:none}.burger{display:block}.nav .lang.desk{display:none}}
+@media (min-width:1021px){.mobile-menu{display:none}}
+
+/* scenes */
+.scene{position:relative}
+.stick{position:sticky;top:0;height:100svh;overflow:hidden}
+
+/* hero */
+.hero{height:340svh}
+.hero canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero .copy{position:absolute;left:0;right:0;top:calc(var(--nav) + clamp(28px,7vh,80px));text-align:center;padding:0 var(--pad);will-change:transform,opacity}
+.hero .copy .sub{margin-top:18px;color:var(--ink);font-weight:500}
+.hero .line2{position:absolute;left:0;right:0;bottom:clamp(30px,6vh,72px);text-align:center;padding:0 var(--pad);opacity:0;will-change:transform,opacity}
+.hero .line2 .actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.hero .hint{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font:600 .66rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--muted);transition:opacity .4s}
+.hero .hint i{width:1.5px;height:34px;background:linear-gradient(var(--gold),transparent);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* statement */
+.statement{height:230svh}
+.statement .stick{display:flex;align-items:center;justify-content:center}
+.statement p{font:500 clamp(1.55rem,3vw,2.6rem)/1.28 var(--serif);color:var(--ink);max-width:30ch;margin:0;padding:0 var(--pad);text-align:center;letter-spacing:-.005em}
+.statement .wd{opacity:.14;transition:opacity .25s linear}
+
+/* photo -> film */
+.film{height:320svh}
+.film .t1{position:absolute;left:0;right:0;top:calc(var(--nav) + clamp(20px,5vh,56px));text-align:center;padding:0 var(--pad);z-index:3;will-change:opacity}
+.film .frame{position:absolute;left:50%;top:0;transform:translateX(-50%);overflow:hidden;background:var(--cream-2);box-shadow:0 30px 80px -40px rgba(66,65,63,.45);will-change:width,height,border-radius}
+.film .frame img,.film .frame video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.film .frame video{opacity:0}
+.film .chip{position:absolute;top:18px;left:18px;z-index:2;font:600 .68rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;padding:9px 14px;border-radius:999px;background:rgba(244,240,232,.9);color:var(--ink);transition:opacity .3s}
+.film .chip.after{background:var(--gold);color:var(--cream);opacity:0}
+.film .t2{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22vh var(--pad) clamp(40px,9vh,90px);background:linear-gradient(to top,rgba(66,65,63,.6),rgba(66,65,63,0));opacity:0;text-align:center}
+.film .t2 .headline{color:var(--cream)}
+.film .t2 .headline em{color:var(--gold)}
+
+/* sections */
+.sec{padding:clamp(96px,15vh,170px) 0}
+.rv{opacity:0;transform:translateY(34px);transition:opacity 1s var(--ease),transform 1.1s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}.rv.d4{transition-delay:.32s}.rv.d5{transition-delay:.4s}
+
+/* compare */
+.compare{position:relative;margin:clamp(48px,7vh,80px) auto 0;max-width:1000px;aspect-ratio:16/10;border-radius:28px;overflow:hidden;cursor:ew-resize;touch-action:pan-y;user-select:none;--pos:50%;background:var(--cream-2);box-shadow:0 30px 80px -44px rgba(66,65,63,.5)}
+.compare video,.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
+.compare .before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.compare .bar{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;margin-left:-1px;background:var(--cream);box-shadow:0 0 16px rgba(66,65,63,.25)}
+.compare .knob{position:absolute;top:50%;left:var(--pos);width:52px;height:52px;margin:-26px 0 0 -26px;border-radius:50%;background:var(--cream);display:grid;place-items:center;box-shadow:0 8px 24px rgba(66,65,63,.2);color:var(--ink);cursor:grab}
+.compare .knob svg{width:22px;height:22px}
+.compare .tag{position:absolute;top:18px;font:600 .68rem/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;padding:9px 14px;border-radius:999px;background:rgba(244,240,232,.9);color:var(--ink)}
+.compare .tag.b{left:18px}.compare .tag.a{right:18px;background:var(--gold);color:var(--cream)}
+.compare .help{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);font-size:.74rem;font-weight:500;color:var(--cream);background:rgba(66,65,63,.45);padding:7px 14px;border-radius:999px;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);transition:opacity .4s}
+.compare.touched .help{opacity:0}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);max-width:1000px;margin:48px auto 0}
+.duo h3{font:600 .74rem/1 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+.duo p{margin:0;color:var(--text)}
+@media (max-width:700px){.duo{grid-template-columns:1fr;gap:28px}.compare{border-radius:20px;aspect-ratio:4/5}}
+
+/* no crew lines */
+.nocrew{height:260svh}
+.nocrew .stick{display:flex;align-items:center;justify-content:center}
+.nocrew .lines{text-align:center;padding:0 var(--pad)}
+.nocrew .ln{display:block;font:600 clamp(2.6rem,7.6vw,6.6rem)/1.08 var(--serif);color:var(--ink);letter-spacing:-.015em;opacity:.12;transform:translateY(18px);transition:opacity .5s ease,transform .7s var(--ease)}
+.nocrew .ln.on{opacity:1;transform:none}
+.nocrew .ln:last-child{color:var(--gold);font-style:italic;margin-top:.25em;font-size:clamp(2rem,5vw,4.2rem)}
+
+/* gold boxes (benefits + why book us) */
+.boxes{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:clamp(48px,7vh,80px)}
+.boxes.three{grid-template-columns:repeat(3,1fr)}
+.tile{position:relative;border-radius:28px;background:var(--gold);color:var(--cream);padding:clamp(26px,3vw,40px);overflow:hidden;display:flex;flex-direction:column;min-height:230px}
+.tile .n{display:block;margin-bottom:auto;padding-bottom:22px;font:600 clamp(2.4rem,3.4vw,3.2rem)/1 var(--serif);letter-spacing:0;color:var(--cream);opacity:.55;transform:translateY(30px);transition:transform 1.4s var(--ease) calc(var(--d,0s) + .25s),opacity 1.4s ease calc(var(--d,0s) + .25s)}
+.tile.in .n{transform:none;opacity:.9}
+.tile h3,.tile p{transform:translateY(24px);opacity:0;transition:transform 1.2s var(--ease) calc(var(--d,0s) + .35s),opacity 1s ease calc(var(--d,0s) + .35s)}
+.tile p{transition-delay:calc(var(--d,0s) + .45s)}
+.tile.in h3,.tile.in p{transform:none;opacity:1}
+.tile.in p{opacity:.92}
+.tile h3{font:600 clamp(1.6rem,2.4vw,2.2rem)/1.1 var(--serif);color:var(--cream);margin:0 0 10px}
+.tile p{margin:0;color:var(--cream);font-size:.98rem}
+.tile.uses{background:var(--ink);grid-column:1 / -1;flex-direction:row;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;min-height:0}
+.tile.uses h3{margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips span{padding:10px 16px;border-radius:999px;background:transparent;box-shadow:inset 0 0 0 1.5px var(--gold);font-size:.86rem;font-weight:500;color:var(--cream);opacity:0;transform:translateY(16px) scale(.9);transition:opacity .8s ease,transform 1s cubic-bezier(.16,1,.3,1)}
+.tile.in .chips span{opacity:1;transform:none}
+.tile.in .chips span:nth-child(1){transition-delay:.45s}.tile.in .chips span:nth-child(2){transition-delay:.55s}.tile.in .chips span:nth-child(3){transition-delay:.65s}.tile.in .chips span:nth-child(4){transition-delay:.75s}
+.rm .chips span{opacity:1;transform:none}
+.three .tile{min-height:250px}
+@media (max-width:900px){.boxes.three{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.boxes,.boxes.three{grid-template-columns:1fr}.tile{min-height:190px;border-radius:22px}}
+
+/* cards rising */
+.card{opacity:0;transform:perspective(1100px) translateY(130px) rotateX(22deg) scale(.88);transform-origin:50% 100%;transition:opacity 1s var(--ease) var(--d,0s),transform 1.5s cubic-bezier(.16,1,.3,1) var(--d,0s),box-shadow .4s ease}
+.card.in{opacity:1;transform:perspective(1100px) translateY(0) rotateX(0) scale(1)}
+@media (hover:hover) and (pointer:fine){.card.in:hover{transform:perspective(1100px) translateY(-10px) rotateX(0) scale(1.02);box-shadow:0 26px 50px -28px rgba(66,65,63,.55);transition-delay:0s}}
+
+/* headline rise */
+.headline .w{display:inline-block;overflow:hidden;vertical-align:top;padding:.04em .02em .12em;margin:-.04em -.02em -.12em}
+.headline .wi{display:inline-block;transform:translateY(115%) rotate(5deg);transform-origin:0 100%;transition:transform 1.25s cubic-bezier(.16,1,.3,1) calc(var(--i,0) * 70ms)}
+.headline.in .wi{transform:none}
+.rm .tile h3,.rm .tile p,.rm .tile .n,.rm .step,.rm .headline .wi,.rm .card{transform:none!important;opacity:1!important;transition:none}
+
+/* rooms */
+.rooms{height:330svh}
+.rooms .stick{display:flex;flex-direction:column;justify-content:center;gap:clamp(28px,5vh,56px)}
+.rooms .head{padding:0 var(--pad);max-width:var(--wrap);margin:0 auto;width:100%}
+.rooms .head .sub{margin-left:0}
+.track{display:flex;gap:clamp(14px,2vw,24px);padding:0 var(--pad);will-change:transform}
+.room{flex:0 0 auto;width:clamp(240px,27vw,380px);margin:0}
+.room .ph{aspect-ratio:3/4;border-radius:24px;overflow:hidden;background:var(--cream-2)}
+.room img{width:100%;height:100%;object-fit:cover}
+.room figcaption{margin-top:14px;font-size:.92rem;font-weight:500;color:var(--ink)}
+.room.wide{width:clamp(320px,52vw,760px)}
+.room.wide .ph{aspect-ratio:auto;height:calc(clamp(240px,27vw,380px) * 4 / 3)}
+
+/* what we do */
+.what .big{font:500 clamp(1.35rem,2.4vw,2rem)/1.4 var(--serif);color:var(--ink);max-width:40ch;margin:28px auto 0;text-align:center;text-wrap:balance}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,5vw,72px);max-width:1000px;margin:64px auto 0;color:var(--text)}
+.cols p{margin:0}
+@media (max-width:860px){.cols{grid-template-columns:1fr}}
+
+/* packages */
+.pk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(48px,7vh,80px);align-items:stretch}
+.pk{background:var(--cream);border-radius:28px;padding:clamp(28px,3vw,40px);display:flex;flex-direction:column}
+.pk .num{font:600 .74rem/1 var(--sans);letter-spacing:.2em;color:var(--gold)}
+.pk h3{font:600 clamp(1.7rem,2.4vw,2.2rem)/1.1 var(--serif);color:var(--ink);margin:14px 0 18px}
+.pk .price{font:600 clamp(2.6rem,4vw,3.4rem)/1 var(--serif);color:var(--ink);margin:0 0 6px;font-variant-numeric:lining-nums}
+.pk .price small{font:500 .9rem var(--sans);color:var(--muted);margin-right:6px}
+.pk ul{list-style:none;padding:0;margin:24px 0 28px;display:grid;gap:11px;font-size:.94rem;flex:1}
+.pk li{display:flex;gap:10px;align-items:flex-start}
+.pk li::before{content:"";flex:0 0 auto;width:16px;height:16px;margin-top:4px;border-radius:50%;background:var(--gold) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m4.5 8.2 2.2 2.2 4.8-5' fill='none' stroke='%23f4f0e8' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.pk .btn{align-self:flex-start}
+.pk.sig{background:var(--ink);color:var(--cream)}
+.pk.sig h3,.pk.sig .price{color:var(--cream)}
+.pk.sig .num{color:var(--gold)}
+.pk.sig .price small{color:var(--gold)}
+.vat{font-size:.8rem;color:var(--muted);text-align:center;margin:22px 0 0}
+.strip{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.strip > div{border-radius:28px;background:var(--cream-2);padding:clamp(24px,3vw,36px)}
+.strip h3{font:600 .74rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 16px}
+.strip ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.92rem;color:var(--ink)}
+.strip li b{color:var(--ink);font-weight:600}
+@media (max-width:900px){.pk-grid{grid-template-columns:1fr;max-width:520px;margin-left:auto;margin-right:auto}.strip{grid-template-columns:1fr}}
+
+/* process */
+.proc{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,6vw,96px);align-items:start}
+.proc .side{position:sticky;top:calc(var(--nav) + 12vh)}
+.proc .side .sub{margin-left:0}
+.meter{margin-top:36px;height:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.meter i{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(var(--p,0));transition:transform .5s var(--ease)}
+.steps{list-style:none;margin:0;padding:0}
+.step{padding:clamp(28px,5vh,48px) 0;border-top:1px solid var(--line);opacity:.18;transform:translateX(90px);transition:opacity .8s ease,transform 1.2s cubic-bezier(.16,1,.3,1)}
+.step.on{opacity:1;transform:none}
+.step b{display:inline-block;font:600 clamp(2.2rem,3.4vw,3rem)/1 var(--serif)!important;letter-spacing:0!important;transform:scale(.6);transform-origin:0 100%;transition:transform 1s cubic-bezier(.16,1,.3,1) .1s}
+.step.on b{transform:none}
+.step h3{transition:color .6s ease}
+.step.on h3{color:var(--ink)}
+.step b{font:600 .74rem/1 var(--sans);letter-spacing:.2em;color:var(--gold)}
+.step h3{font:600 clamp(1.8rem,3vw,2.6rem)/1.1 var(--serif);color:var(--ink);margin:12px 0 8px}
+.step p{margin:0;color:var(--muted);max-width:44ch}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:clamp(56px,8vh,96px)}
+.facts div{border-radius:24px;background:var(--cream-2);padding:28px}
+.facts h4{margin:0 0 8px;font:600 .74rem/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.facts p{margin:0;font-size:.94rem;color:var(--ink)}
+@media (max-width:860px){.proc{grid-template-columns:1fr}.proc .side{position:relative;top:0}.facts{grid-template-columns:1fr}.step{transform:translateX(60px)}.step.on{transform:none}}
+
+/* faq */
+.faq{max-width:860px;margin:clamp(40px,6vh,64px) auto 0}
+.qa{border-bottom:1px solid var(--line)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;text-align:left;background:none;border:0;padding:24px 0;cursor:pointer;font:600 clamp(1.15rem,1.8vw,1.4rem)/1.3 var(--serif);color:var(--ink)}
+.qa .pm{flex:0 0 auto;width:30px;height:30px;border-radius:50%;background:var(--cream-2);display:grid;place-items:center;transition:transform .4s var(--ease),background .3s}
+.qa .pm svg{width:14px;height:14px}
+.qa[open] .pm{transform:rotate(45deg);background:var(--gold);color:var(--cream)}
+.qa .ans{display:grid;grid-template-rows:0fr;transition:grid-template-rows .45s var(--ease)}
+.qa[open] .ans{grid-template-rows:1fr}
+.qa .ans > div{overflow:hidden}
+.qa .ans p{margin:0 0 24px;color:var(--muted);max-width:64ch}
+
+/* band + contact */
+.band{padding:clamp(110px,18vh,200px) 0;text-align:center}
+.band .headline{max-width:18ch;margin:0 auto}
+.band .btn{margin-top:36px}
+.contact{background:var(--cream-2);border-radius:clamp(28px,4vw,48px) clamp(28px,4vw,48px) 0 0}
+.contact .grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,90px)}
+.contact .sub{margin-left:0}
+.direct{display:flex;flex-direction:column;gap:12px;margin-top:32px}
+.direct a{display:inline-flex;align-items:center;gap:10px;color:var(--ink);text-decoration:none;font-weight:500}
+.direct svg{width:18px;height:18px;color:var(--gold)}
+.form{position:relative;background:var(--gold);border-radius:28px;padding:clamp(24px,3.4vw,44px);color:var(--cream)}
+.form .field>label,.form .field .lbl{color:var(--cream)}
+.form .consent{color:var(--cream)}
+.form .err{color:var(--cream);text-decoration:underline}
+.form .invalid input[type=text],.form .invalid input[type=email]{border-color:var(--ink)}
+.form .field input:focus,.form .field textarea:focus{border-color:var(--ink);background:var(--cream)}
+.form .pkg:has(input:checked){border-color:var(--ink);background:var(--cream)}
+.form .pkg:has(input:checked) .dot{border-color:var(--ink)}
+.form .pkg em{color:var(--ink)}
+.form .consent input{accent-color:var(--ink)}
+.form .btn{background:var(--ink);color:var(--cream)}
+.form .sent .check{color:var(--cream)}
+.form .sent h3,.form .sent .mail{color:var(--cream)}
+.form .sent p{color:var(--cream)}
+@media (hover:hover) and (pointer:fine){.form .btn:hover{background:var(--cream);color:var(--ink)}}
+.fields{display:grid;gap:18px}
+.field>label,.field .lbl{display:block;font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--ink);margin-bottom:8px}
+.field input[type=text],.field input[type=email],.field textarea{width:100%;font:500 16px/1.4 var(--sans);color:var(--ink);background:var(--cream);border:1.5px solid transparent;border-radius:14px;padding:14px 16px;transition:border-color .2s,background .2s}
+.field textarea{min-height:120px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--gold);background:var(--cream)}
+.pkgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pkg{display:flex;align-items:center;gap:10px;padding:13px 14px;border-radius:14px;background:var(--cream);cursor:pointer;font-size:.86rem;font-weight:500;color:var(--ink);border:1.5px solid transparent;transition:border-color .2s,background .2s}
+.pkg input{position:absolute;opacity:0;pointer-events:none}
+.pkg .dot{flex:0 0 auto;width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(66,65,63,.35);transition:border .2s}
+.pkg em{margin-left:auto;font-style:normal;color:var(--ink);font-weight:600;white-space:nowrap}
+.pkg:has(input:checked){border-color:var(--gold);background:var(--cream)}
+.pkg:has(input:checked) .dot{border:5px solid var(--gold)}
+.pkg:has(input:focus-visible){outline:2px solid var(--gold);outline-offset:2px}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:.86rem;color:var(--text);cursor:pointer}
+.consent input{width:18px;height:18px;margin:2px 0 0;accent-color:var(--gold);flex:0 0 auto}
+.err{display:none;font-size:.78rem;font-weight:600;color:var(--ink);margin-top:6px}
+.invalid .err{display:block}
+.invalid input[type=text],.invalid input[type=email]{border-color:var(--gold)}
+.form .btn{justify-self:start;margin-top:6px}
+.sent{display:none;text-align:center;padding:40px 10px}
+.form.done .fields{display:none}.form.done .sent{display:block}
+.form .ok-mail{display:none}.form.fallback .ok-mail{display:block}.form.fallback .ok-net{display:none}
+.form .sent .btn.ok-mail{display:none}.form.fallback .sent .btn.ok-mail{display:inline-flex}
+.sent .check{width:64px;height:64px;color:var(--gold);margin:0 auto 18px}
+.sent h3{font:600 2rem/1.1 var(--serif);color:var(--ink);margin:0 0 10px}
+.sent p{color:var(--muted);max-width:40ch;margin:0 auto 10px}
+.sent .mail{color:var(--ink);font-weight:600}
+@media (max-width:860px){.contact .grid{grid-template-columns:1fr}.pkgs{grid-template-columns:1fr}}
+
+footer{background:var(--ink);color:var(--cream);padding:40px 0 calc(40px + env(safe-area-inset-bottom))}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;justify-content:space-between;font-size:.8rem;color:var(--cream)}
+footer a{color:var(--gold)}
+footer a{text-decoration:none}
+footer .fl{display:flex;gap:22px}
+
+/* reduced motion */
+.rm .scene{height:auto!important}
+.rm .stick{position:relative;height:auto;min-height:100svh}
+.rm .hero .stick{height:100svh}
+.rm .rooms .track{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}
+.rm .room{scroll-snap-align:start}
+.rm .rv{opacity:1;transform:none;transition:none}
+.rm .hero .hint i{animation:none}
+@media (max-width:700px){
+  :root{--nav:72px}
+  .hero{height:290svh}.film{height:280svh}.rooms{height:300svh}.nocrew{height:230svh}.statement{height:200svh}
+  .hero .copy{top:calc(var(--nav) + 34px)}
+  .hero .line2 .actions .btn{min-height:44px;font-size:.8rem}
+  .film .chip{top:12px;left:12px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main" data-i18n="skip">Zum Inhalt springen</a>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="-2 -2 120 104"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M100 58V0H0v100h100V82" stroke-width="2.6"/><path d="M15.8 52.3 49.8 22.1l34.1 30.2" stroke-width="2.6"/><path d="M15.8 70.2c7.4-5.6 13.2-5.1 19.6-2.2 6.8 3.1 11.4 6.5 17.6 1.4 9.6-7.9 17.6-9.4 24.6-6.2 6.4 2.9 10.6 8.7 17.5 9.2 6.6.5 12.2-3.6 18.6-8.7" stroke-width="3"/><path d="M15.8 81.4c6.6-4.9 11.7-4.2 17.6-1.6 6.4 2.8 10.9 5.3 16.6.8 8.3-6.6 15.5-7.6 21.6-5 4.8 2 8.6 4.9 12.2 7.5" stroke-width="1.6"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M2 8h11M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m4 7 8 6 8-6" stroke-linecap="round"/></g></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".9" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-lr" viewBox="0 0 24 24"><path d="m9 7-5 5 5 5M15 7l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap bar">
+    <a class="brand" href="#home" aria-label="Breathing Frames – Home">
+      <svg aria-hidden="true"><use href="#logo"/></svg>
+      <span class="bt"><span class="b1">BREATHING FRAMES</span><span class="b2">Cinematic Property Films</span></span>
+    </a>
+    <nav class="menu" aria-label="Main navigation">
+      <span class="sep" aria-hidden="true"></span>
+      <a class="nl" href="#home" data-i18n="nav_home">Home</a>
+      <a class="nl" href="#about" data-i18n="nav_about">About us</a>
+      <a class="nl" href="#packages" data-i18n="nav_packages">Packages</a>
+      <a class="nl" href="#process" data-i18n="nav_process">Our process</a>
+      <a class="cta" href="#contact" data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="lang desk" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    </div>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mmenu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="mobile-menu" id="mmenu" aria-hidden="true">
+  <a href="#home" data-i18n="nav_home">Home</a>
+  <a href="#about" data-i18n="nav_about">About us</a>
+  <a href="#packages" data-i18n="nav_packages">Packages</a>
+  <a href="#process" data-i18n="nav_process">Our process</a>
+  <a class="mm-cta" href="#contact" data-i18n="nav_contact">Contact</a>
+  <div class="lang" role="group" aria-label="Sprache / Language">
+    <button type="button" data-lang="de" aria-pressed="false">DE</button>
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+  </div>
+</div>
+
+<main id="main">
+<!-- HERO: villa orbit -->
+<section class="scene hero" id="home" data-scene="hero">
+  <div class="stick">
+    <canvas id="orbit" role="img" aria-label="Moderne Luxusvilla mit Infinity-Pool, die sich beim Scrollen dreht" data-i18n-aria="a_alt_orbit"></canvas>
+    <div class="copy">
+      <p class="eyebrow">Cinematic Property Films</p>
+      <h1 class="headline h1">Breathing Frames</h1>
+      <p class="sub" data-i18n="a_tag1">Lassen Sie Ihren Raum atmen.</p>
+    </div>
+    <div class="line2">
+      <h2 class="headline h3" data-i18n-html="a_tag2">Fangen Sie das <em>Gefühl</em> ein.</h2>
+      <div class="actions">
+        <a class="btn" href="#packages"><span data-i18n="cta_packages">Pakete ansehen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn ghost" href="#art" data-i18n="cta_example">Beispiel ansehen</a>
+      </div>
+    </div>
+    <div class="hint" aria-hidden="true"><span data-i18n="scroll">Scrollen zum Entdecken</span><i></i></div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="scene statement" data-scene="statement" aria-label="Einleitung">
+  <div class="stick"><p id="lead" data-i18n="hero_lead">In der digitalen Welt von heute entscheiden Gäste mit den Augen.</p></div>
+</section>
+
+<!-- PHOTO -> FILM -->
+<section class="scene film" id="art" data-scene="film">
+  <div class="stick">
+    <div class="t1">
+      <p class="eyebrow" data-i18n="art_title">Die Kunst des Immobilienfilms</p>
+      <h2 class="headline h2" data-i18n="a_photo1">Ein Foto zeigt einen Raum.</h2>
+    </div>
+    <div class="frame" id="frame">
+      <img src="assets/living.webp" alt="Vorher: Standfoto des Wohnzimmers" data-i18n-alt="alt_before" width="647" height="610">
+      <video muted loop playsinline preload="metadata" poster="assets/after-poster.jpg" aria-label="Nachher: cineastische Kamerafahrt durch das Wohnzimmer" data-i18n-aria="alt_after"><source src="assets/after.mp4" type="video/mp4"></video>
+      <span class="chip before" data-i18n="before">Vorher</span>
+      <span class="chip after" data-i18n="after">Nachher</span>
+      <div class="t2"><h2 class="headline h2" data-i18n-html="a_photo2">Ein Film lässt ihn <em>spüren</em>.</h2></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section class="sec center" aria-labelledby="cmp-t">
+  <div class="wrap">
+    <p class="eyebrow rv" data-i18n="art_example">Beispiel einer Einstellung</p>
+    <h2 class="headline h2 rv d1" id="cmp-t"><span data-i18n="before">Vorher</span> · <span data-i18n="after">Nachher</span></h2>
+    <div class="compare rv d3" id="compare">
+      <video muted loop playsinline preload="metadata" poster="assets/after-poster.jpg" aria-hidden="true"><source src="assets/after.mp4" type="video/mp4"></video>
+      <img class="before" src="assets/living.webp" alt="" width="647" height="610" loading="lazy">
+      <span class="tag b" data-i18n="before">Vorher</span><span class="tag a" data-i18n="after">Nachher</span>
+      <span class="bar" aria-hidden="true"></span>
+      <span class="knob" role="slider" tabindex="0" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-label="Vorher/Nachher vergleichen" data-i18n-aria="compare_aria"><svg aria-hidden="true"><use href="#i-lr"/></svg></span>
+      <span class="help" data-i18n="drag">Zum Vergleichen ziehen</span>
+    </div>
+    <div class="duo" style="text-align:left">
+      <div class="rv"><h3 data-i18n="before">Vorher</h3><p data-i18n="before_text"></p></div>
+      <div class="rv d1"><h3 data-i18n="after">Nachher</h3><p data-i18n="after_text"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NO CREW -->
+<section class="scene nocrew" data-scene="nocrew" aria-label="Kein Filmteam">
+  <div class="stick"><div class="lines" id="lines"></div></div>
+</section>
+
+<!-- BENEFITS -->
+<section class="sec" id="benefits" aria-labelledby="ben-t">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv" data-i18n="ben_sub">Die Vorteile</p>
+      <h2 class="headline h2 rv d1" data-drift id="ben-t" data-i18n="a_ben_t">Warum ein Immobilienfilm?</h2>
+    </div>
+    <div class="boxes">
+      <article class="tile card"><span class="n">01</span><h3 data-i18n="b1_t"></h3><p data-i18n="b1_p"></p></article>
+      <article class="tile card"><span class="n">02</span><h3 data-i18n="b2_t"></h3><p data-i18n="b2_p"></p></article>
+      <article class="tile card"><span class="n">03</span><h3 data-i18n="b3_t"></h3><p data-i18n="b3_p"></p></article>
+      <article class="tile card"><span class="n">04</span><h3 data-i18n="b4_t"></h3><p data-i18n="b4_p"></p></article>
+      <article class="tile uses card"><h3 data-i18n="a_use_t"></h3><div class="chips"><span data-i18n="use1"></span><span data-i18n="use2"></span><span data-i18n="use3"></span><span data-i18n="use4"></span></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS: removed until the room clips exist (saved in rooms_section.html) -->
+
+<!-- ABOUT / WHAT -->
+<section class="sec what" id="about" aria-labelledby="what-t">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv" data-i18n="nav_about">Über uns</p>
+      <h2 class="headline h2 rv d1" id="what-t" data-i18n="a_what_t">Was wir tun.</h2>
+      <p class="big rv d2" data-i18n="what_p"></p>
+    </div>
+    <div class="cols"><p class="rv" data-i18n="about_p1"></p><p class="rv d1" data-i18n="about_p2"></p></div>
+    <h2 class="headline h3 center rv" data-drift style="margin-top:clamp(80px,12vh,140px)" data-i18n="a_why_t">Warum wir?</h2>
+    <div class="boxes three">
+      <article class="tile card"><span class="n">01</span><h3 data-i18n="w1_t"></h3><p data-i18n="w1_p"></p></article>
+      <article class="tile card"><span class="n">02</span><h3 data-i18n="w2_t"></h3><p data-i18n="w2_p"></p></article>
+      <article class="tile card"><span class="n">03</span><h3 data-i18n="w3_t"></h3><p data-i18n="w3_p"></p></article>
+      <article class="tile card"><span class="n">04</span><h3 data-i18n="w4_t"></h3><p data-i18n="w4_p"></p></article>
+      <article class="tile card"><span class="n">05</span><h3 data-i18n="w5_t"></h3><p data-i18n="w5_p"></p></article>
+      <article class="tile card"><span class="n">06</span><h3 data-i18n="w6_t"></h3><p data-i18n="w6_p"></p></article>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="sec" id="packages" aria-labelledby="pk-t" style="background:var(--cream-2)">
+  <div class="wrap">
+    <div class="center">
+      <p class="eyebrow rv" data-i18n="nav_packages">Pakete</p>
+      <h2 class="headline h2 rv d1" id="pk-t" data-i18n="a_pk_t">Unsere Pakete.</h2>
+      <p class="sub rv d2" data-i18n="a_pk_s">Maßgeschneidert für Ihre Immobilie.</p>
+    </div>
+    <div class="pk-grid">
+      <article class="pk card"><span class="num">01</span><h3 data-i18n="p1_name"></h3><p class="price"><span class="amount" data-price="499">499 €</span></p>
+        <ul><li data-i18n="p1_1"></li><li data-i18n="p1_2"></li><li data-i18n="f_cam"></li><li data-i18n="f_edit"></li><li data-i18n="p1_5"></li><li data-i18n="p1_6"></li><li data-i18n="f_prev"></li><li data-i18n="p1_8"></li></ul>
+        <a class="btn" href="#contact" data-pick="p1"><span data-i18n="choose">Paket wählen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+      <article class="pk card"><span class="num">02</span><h3 data-i18n="p2_name"></h3><p class="price"><span class="amount" data-price="999">999 €</span></p>
+        <ul><li data-i18n="p2_1"></li><li data-i18n="p2_2"></li><li data-i18n="f_cam"></li><li data-i18n="f_inex"></li><li data-i18n="f_edit"></li><li data-i18n="p2_6"></li><li data-i18n="f_all"></li><li data-i18n="f_prev"></li><li data-i18n="p2_9"></li></ul>
+        <a class="btn" href="#contact" data-pick="p2"><span data-i18n="choose">Paket wählen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+      <article class="pk sig card"><span class="num">Signature</span><h3 data-i18n="p3_name"></h3><p class="price"><small data-i18n="from">Ab</small><span class="amount" data-price="1500">1.500 €</span></p>
+        <ul><li data-i18n="p3_1"></li><li data-i18n="p3_2"></li><li data-i18n="f_cam"></li><li data-i18n="f_inex"></li><li data-i18n="p3_5"></li><li data-i18n="p3_6"></li><li data-i18n="f_all"></li><li data-i18n="f_prev"></li><li data-i18n="p3_9"></li></ul>
+        <a class="btn" href="#contact" data-pick="p3"><span data-i18n="choose">Paket wählen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a></article>
+    </div>
+    <div class="strip">
+      <div class="card"><h3 data-i18n="inc_title"></h3><ul><li data-i18n="f_cam"></li><li data-i18n="f_edit"></li><li data-i18n="inc_prev"></li><li data-i18n="inc_true"></li><li data-i18n="inc_rev"></li></ul></div>
+      <div class="card"><h3 data-i18n="ex_title"></h3><ul><li><span data-i18n="ex1"></span> <b data-eur="50">50 €</b></li><li><span data-i18n="ex2"></span> <b data-eur="100">100 €</b></li><li><span data-i18n="ex3"></span> <b data-eur="100">100 €</b></li></ul></div>
+    </div>
+    <p class="vat" data-i18n="vat"></p>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="sec" id="process" aria-labelledby="pr-t">
+  <div class="wrap">
+    <div class="proc">
+      <div class="side">
+        <p class="eyebrow" data-i18n="nav_process">Ablauf</p>
+        <h2 class="headline h2" data-drift id="pr-t" data-i18n="a_pr_t">Unser Ablauf</h2>
+        <p class="sub" data-i18n="ct_intro"></p>
+        <div class="meter" aria-hidden="true"><i id="meter"></i></div>
+      </div>
+      <ol class="steps" id="steps">
+        <li class="step"><b>01</b><h3 data-i18n="s1_t"></h3><p data-i18n="s1_p"></p></li>
+        <li class="step"><b>02</b><h3 data-i18n="s2_t"></h3><p data-i18n="s2_p"></p></li>
+        <li class="step"><b>03</b><h3 data-i18n="s3_t"></h3><p data-i18n="s3_p"></p></li>
+        <li class="step"><b>04</b><h3 data-i18n="s4_t"></h3><p data-i18n="s4_p"></p></li>
+        <li class="step"><b>05</b><h3 data-i18n="s5_t"></h3><p data-i18n="s5_p"></p></li>
+        <li class="step"><b>06</b><h3 data-i18n="s6_t"></h3><p data-i18n="s6_p"></p></li>
+      </ol>
+    </div>
+    <div class="facts">
+      <div class="card"><h4 data-i18n="t1_t"></h4><p data-i18n="t1_p"></p></div>
+      <div class="card"><h4 data-i18n="t2_t"></h4><p data-i18n="t2_p"></p></div>
+      <div class="card"><h4 data-i18n="t3_t"></h4><p data-i18n="t3_p"></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec" id="faq" aria-labelledby="faq-t" style="padding-top:0">
+  <div class="wrap">
+    <h2 class="headline h2 center rv" id="faq-t" data-i18n="a_faq_t">Häufige Fragen.</h2>
+    <div class="faq" id="faq-list"></div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section class="band">
+  <div class="wrap">
+    <h2 class="headline h2 rv" data-i18n="band"></h2>
+    <a class="btn rv d1" href="#contact"><span data-i18n="cta_start">Film anfragen</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec contact" id="contact" aria-labelledby="ct-t">
+  <div class="wrap grid">
+    <div>
+      <p class="eyebrow" data-i18n="nav_contact">Kontakt</p>
+      <h2 class="headline h3" id="ct-t" data-i18n="a_ct_t">Lassen Sie uns Ihre Immobilie zum Leben erwecken.</h2>
+      <p class="sub" data-i18n="ct_intro"></p>
+      <div class="direct">
+        <a href="mailto:hello@breathingframes.com"><svg aria-hidden="true"><use href="#i-mail"/></svg>hello@breathingframes.com</a>
+        <a href="https://www.instagram.com/breathingframes.films/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>@breathingframes.films</a>
+      </div>
+    </div>
+    <form class="form" id="inquiry" name="inquiry" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="inquiry"><input type="hidden" name="package_name" value="">
+      <p hidden><label>Leave empty <input name="bot-field"></label></p>
+      <div class="fields">
+        <div class="field" data-f="name"><label for="f-name" data-i18n="f_name">Vollständiger Name</label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err" data-i18n="e_name"></span></div>
+        <div class="field" data-f="property"><label for="f-prop" data-i18n="f_prop">Name der Immobilie</label><input id="f-prop" name="property" type="text" autocomplete="organization"></div>
+        <div class="field" data-f="email"><label for="f-mail" data-i18n="f_mail">E-Mail-Adresse</label><input id="f-mail" name="email" type="email" autocomplete="email" inputmode="email" autocapitalize="none" spellcheck="false" required><span class="err" data-i18n="e_mail"></span></div>
+        <div class="field" data-f="package">
+          <span class="lbl" id="pkg-lbl" data-i18n="f_pkg">Paket wählen</span>
+          <div class="pkgs" role="radiogroup" aria-labelledby="pkg-lbl">
+            <label class="pkg"><input type="radio" name="package" value="p1"><span class="dot"></span><span data-i18n="o_p1"></span><em data-eur="499">499 €</em></label>
+            <label class="pkg"><input type="radio" name="package" value="p2"><span class="dot"></span><span data-i18n="o_p2"></span><em data-eur="999">999 €</em></label>
+            <label class="pkg"><input type="radio" name="package" value="p3"><span class="dot"></span><span data-i18n="o_p3"></span><em data-eur="1500" data-from="1">ab 1.500 €</em></label>
+            <label class="pkg"><input type="radio" name="package" value="unsure"><span class="dot"></span><span data-i18n="o_unsure"></span></label>
+          </div>
+          <span class="err" data-i18n="e_pkg"></span>
+        </div>
+        <div class="field" data-f="message"><label for="f-msg" data-i18n="f_msg">Ihre Nachricht</label><textarea id="f-msg" name="message"></textarea></div>
+        <div class="field" data-f="consent"><label class="consent"><input type="checkbox" name="consent" required><span data-i18n="f_consent"></span></label><span class="err" data-i18n="e_consent"></span></div>
+        <button class="btn" type="submit"><span data-i18n="send">Anfrage senden</span><svg aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+      <div class="sent" role="status" aria-live="polite">
+        <svg class="check" viewBox="0 0 72 72" aria-hidden="true"><circle cx="36" cy="36" r="33" fill="none" stroke="currentColor" stroke-width="2" opacity=".35"/><path d="m23 37 9 9 18-20" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3 class="ok-net" data-i18n="a_ok_title"></h3>
+        <p class="ok-net" data-i18n="a_ok_text"></p>
+        <h3 class="ok-mail" data-i18n="ok_title"></h3>
+        <p class="ok-mail" data-i18n="ok_text"></p>
+        <p class="mail ok-mail">hello@breathingframes.com</p>
+        <button class="btn ok-mail" type="button" id="copy-msg"><span data-i18n="copy"></span></button>
+      </div>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Breathing Frames · <span data-i18n="slogan"></span></span>
+    <div class="fl"><a href="mailto:hello@breathingframes.com">hello@breathingframes.com</a><a href="https://www.instagram.com/breathingframes.films/" target="_blank" rel="noopener">Instagram</a></div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.3.27/dist/lenis.min.js"></script>
+<script>
+(function(){
+"use strict";
+var T = {
+ de:{
+  skip:"Zum Inhalt springen", nav_home:"Start", nav_about:"Über uns", nav_packages:"Pakete", nav_process:"Ablauf", nav_contact:"Kontakt", faq_short:"FAQ",
+  hero_tag:"LASSEN SIE IHREN RAUM ATMEN.<br>FANGEN SIE DAS GEFÜHL EIN.",
+  hero_lead:"In der digitalen Welt von heute entscheiden Gäste mit den Augen. Ein cineastischer Immobilienfilm fängt die Atmosphäre ein, rückt die Details ins Licht und erzählt die Geschichte Ihrer Immobilie so, wie es Fotos allein nicht können.",
+  cta_packages:"Pakete ansehen", cta_example:"Beispiel ansehen", cta_why:"Warum wir?", cta_start:"Film anfragen", scroll:"Scrollen zum Entdecken",
+  alt_villa:"Moderne Luxusvilla mit Infinity-Pool im Abendlicht",
+  alt_before:"Vorher: Standfoto des Wohnzimmers", alt_after:"Nachher: cineastische Kamerafahrt durch das Wohnzimmer",
+  alt_bed:"Schlafzimmer mit Blick auf die Skyline", alt_balc:"Balkon im Abendlicht", alt_bath:"Bad mit begehbarer Dusche", alt_kitchen:"Küche und Essbereich mit Marmortisch",
+  art_title:"DIE KUNST DES IMMOBILIENFILMS", art_sub:"Lassen Sie Gäste Ihre Immobilie fühlen, nicht nur sehen.",
+  art_box:"Jede Immobilie erzählt eine Geschichte. Mit cineastischen Bildern, durchdachten Details und sorgfältig gestalteter Bewegung verwandeln wir Ihren Raum in ein Erlebnis, das Aufmerksamkeit weckt und Gäste begeistert.",
+  art_example:"Beispiel einer Einstellung", before:"Vorher", after:"Nachher", drag:"Zum Vergleichen ziehen", compare_aria:"Vorher/Nachher vergleichen",
+  before_text:"Statische Fotos halten einen Moment fest, können die Atmosphäre, Bewegung und Emotion Ihrer Immobilie aber nicht vollständig vermitteln.",
+  after_text:"Cineastische Bilder, sorgfältig ausgewählte Musik und professionell angepasste Formate erwecken Ihre Immobilie zum Leben – bereit, auf Social Media, Buchungsplattformen und Websites herauszustechen.",
+  ben_title:"WARUM EIN IMMOBILIENFILM?", ben_sub:"Die Vorteile",
+  b1_t:"Stärkerer erster Eindruck", b1_p:"Heben Sie sich von der Konkurrenz ab und ziehen Sie sofort die Aufmerksamkeit auf sich.",
+  b2_t:"Das Erlebnis zeigen", b2_p:"Zeigen Sie die einzigartige Atmosphäre, das Design und den Lifestyle Ihrer Immobilie.",
+  b3_t:"Mehr Sichtbarkeit", b3_p:"Videos lassen Immobilien herausstechen, ziehen mehr Aufmerksamkeit auf sich und bringen mehr Buchungen.",
+  b4_t:"Premium-Positionierung", b4_p:"Ein hochwertiger Film vermittelt Wert und rechtfertigt Ihre Premium-Preise.",
+  nocrew:"Kein Filmteam. Kein Drehtag. Keine Störung. Treu zu Ihrer Immobilie.",
+  use_title:"WO SIE IHREN FILM EINSETZEN", use1:"Airbnb-Inserat", use2:"Social Media", use3:"Website & Landingpages", use4:"E-Mail-Marketing & Direktbuchung",
+  about_title:"ÜBER UNS", about_tag:"EIN FOTO ZEIGT EINEN RAUM.<br>EIN FILM LÄSST IHN SPÜREN.",
+  about_p1:"Breathing Frames begann mit einer einfachen Beobachtung: Gäste buchen nicht nur einen Ort, sie buchen ein Gefühl. Doch die meisten Unterkünfte werden mit Standfotos gezeigt, die festhalten, wie ein Raum aussieht, aber nicht, wie er sich anfühlt: das Licht, das durch ein Fenster wandert, die Ruhe einer Terrasse, der Moment, bevor man eintritt.",
+  about_p2:"Daher kommt unser Name. Wir wollten Bilder, die atmen. Standfotos, denen wir Bewegung, Licht und Atmosphäre geben, damit ein Raum lebendig wird, bevor jemand ankommt.",
+  what_title:"WAS WIR TUN",
+  what_p:"Wir verwandeln Ihre Fotos in cineastische Immobilienfilme. Mit moderner, KI-gestützter Technik fügen wir den Fotos, die Sie uns senden, sanfte Kamerabewegung, Licht und sorgfältig ausgewählte Musik hinzu. Nicht mehr. Jeder Raum, jeder Ausblick und jedes Detail bleibt genau so, wie es ist – denn ein Film sollte nie mehr versprechen, als Ihre Immobilie hält.",
+  why_title:"WARUM WIR?",
+  w1_t:"Kein Team, kein Drehtag", w1_p:"Niemand kommt vorbei, kein blockierter Kalender, keine Störung für Ihre Gäste.",
+  w2_t:"Schnelle Lieferung", w2_p:"Ihre Vorschau in wenigen Tagen, egal wo auf der Welt Ihre Immobilie liegt.",
+  w3_t:"Bereit für jede Plattform", w3_p:"Airbnb, Website, Social Media und E-Mail, im Quer- und Hochformat.",
+  w4_t:"Faire Preise", w4_p:"Drei klare Pakete, 50 % Anzahlung, 50 % nach Freigabe.",
+  w5_t:"Treu zu Ihrer Immobilie", w5_p:"Wir fügen nur Bewegung und Licht hinzu.",
+  w6_t:"Gemacht, um geliebt zu werden", w6_p:"Eine Vorschau, eine Korrekturrunde und unser Versprechen, dass wir nicht aufhören, bis Sie das Ergebnis lieben.",
+  pk_title:"UNSERE PAKETE", pk_tag:"UNSERE FILMPAKETE.<br>MASSGESCHNEIDERT FÜR IHRE IMMOBILIE.",
+  p1_name:"Immobilienfilm", p1_1:"20–30 Sekunden", p1_2:"Bis zu 4 ausgewählte Innenbereiche", p1_5:"Querformat (16:9)", p1_6:"Ideal für Airbnb und Website", p1_8:"Ca. 3 Werktage",
+  p2_name:"Luxus-Immobilienfilm", p2_1:"40–60 Sekunden", p2_2:"Bis zu 8 ausgewählte Bereiche", p2_6:"Hoch- (9:16) + Querformat (16:9)", p2_9:"Ca. 3–5 Werktage",
+  p3_name:"Signature-Immobilienfilm", p3_1:"Individuelle Filmlänge", p3_2:"Komplette Immobilie", p3_5:"Professioneller Schnitt & Musik", p3_6:"Freie Wahl der Videoformate", p3_9:"5–7 Werktage",
+  f_cam:"Cineastische Kamerabewegung", f_edit:"Professioneller Schnitt", f_prev:"Vorschau & eine Korrekturrunde", f_inex:"Innen & außen", f_all:"Perfekt für alle Plattformen",
+  from:"Ab", vat:"Endpreise. Gemäß § 19 UStG wird keine Umsatzsteuer berechnet.", choose:"Paket wählen",
+  inc_title:"In jedem Paket enthalten", inc_prev:"Vorschau", inc_true:"Treue-Versprechen zur Immobilie", inc_rev:"Eine Korrekturrunde",
+  ex_title:"Extras", ex1:"Zusätzliche Korrekturrunde", ex2:"Zusätzliche Formate", ex3:"Zusätzlicher Bereich",
+  pr_title:"UNSER ABLAUF",
+  s1_t:"Planung & Buchung", s1_p:"Wählen Sie Ihr Wunschpaket und besprechen Sie Ihre individuellen Anforderungen.",
+  s2_t:"Zahlung & Bestätigung", s2_p:"Eine Anzahlung von 50 % sichert Ihre Buchung und bestätigt das Projekt.",
+  s3_t:"Fotoübergabe", s3_p:"Senden Sie uns Fotos der gewünschten Bereiche.",
+  s4_t:"Vorschau & Korrektur", s4_p:"Prüfen Sie Ihre erste Vorschau und sagen Sie uns, welche Anpassungen Sie wünschen.",
+  s5_t:"Restzahlung", s5_p:"Geben Sie den überarbeiteten Film frei und begleichen Sie die restlichen 50 %.",
+  s6_t:"Übergabe", s6_p:"Erhalten Sie Ihren fertigen Film, bereit, Ihre Immobilie zu zeigen.",
+  t1_t:"Lieferzeit", t1_p:"3–7 Werktage (je nach Paket)", t2_t:"Korrekturen", t2_p:"Eine Korrekturrunde inklusive (weitere Runden auf Wunsch für 50 € pro Runde)", t3_t:"Zufriedenheit", t3_p:"Wir arbeiten eng mit Ihnen zusammen, damit der fertige Film Ihre Erwartungen erfüllt.",
+  faq_title:"HÄUFIGE FRAGEN",
+  band:"Ihre Immobilie hat schon eine Geschichte. Lassen wir sie atmen.",
+  ct_title:"LASSEN SIE UNS IHRE IMMOBILIE ZUM LEBEN ERWECKEN", ct_intro:"Erzählen Sie uns von Ihrer Immobilie und Ihrem Wunschpaket – wir melden uns mit den nächsten Schritten.",
+  f_name:"Vollständiger Name", f_prop:"Name der Immobilie", f_mail:"E-Mail-Adresse", f_pkg:"Paket wählen", f_msg:"Ihre Nachricht",
+  o_p1:"#01 Immobilienfilm", o_p2:"#02 Luxus-Immobilienfilm", o_p3:"#03 Signature-Immobilienfilm", o_unsure:"Noch unsicher",
+  f_consent:"Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden.",
+  e_name:"Bitte geben Sie Ihren Namen ein.", e_mail:"Bitte geben Sie eine gültige E-Mail-Adresse ein.", e_pkg:"Bitte wählen Sie ein Paket oder „Noch unsicher“.", e_consent:"Bitte bestätigen Sie die Einwilligung.",
+  send:"Anfrage senden", ok_title:"Fast geschafft",
+  ok_text:"Ihr E-Mail-Programm öffnet sich jetzt mit Ihrer vorbereiteten Anfrage – bitte senden Sie sie dort ab. Falls sich nichts öffnet, kopieren Sie die Nachricht und senden Sie sie an:",
+  copy:"Nachricht kopieren", copied:"Kopiert",
+  slogan:"Ihre Immobilie verdient es, gefühlt zu werden – nicht nur gesehen.", ready:"Bereit, Ihre Immobilie zum Leben zu erwecken?",
+  mail_subject:"Anfrage Immobilienfilm", m_name:"Name", m_prop:"Immobilie", m_mail:"E-Mail", m_pkg:"Paket", m_msg:"Nachricht",
+  title:"Breathing Frames – Cineastische Immobilienfilme", menu_open:"Menü öffnen", menu_close:"Menü schließen",
+  faq:[
+   ["Müssen Sie für den Film zu meiner Immobilie kommen?","Nein. Sie senden uns Fotos der ausgewählten Bereiche, und wir erstellen daraus Ihren Film. Kein Filmteam, kein Drehtag, keine blockierten Buchungen."],
+   ["Welche Fotos sollte ich senden?","Querformat-Fotos in der höchsten Auflösung, die Sie haben – bei Tageslicht, mit eingeschaltetem Licht und aufgeräumtem Raum. Idealerweise jeden Raum aus zwei Ecken."],
+   ["Verändert der Film, wie meine Immobilie aussieht?","Nein. Wir fügen nur Bewegung und Licht hinzu. Jeder Raum, jeder Ausblick und jedes Detail bleibt, wie es ist – ein Film sollte nie mehr versprechen, als Ihre Immobilie hält."],
+   ["Wie lange dauert es?","Ca. 3 Werktage für den Immobilienfilm, ca. 3–5 Werktage für den Luxus-Immobilienfilm und 5–7 Werktage für den Signature-Immobilienfilm."],
+   ["Wie funktioniert die Bezahlung?","Eine Anzahlung von 50 % sichert Ihre Buchung, die restlichen 50 % zahlen Sie, sobald Sie den fertigen Film freigeben. Alle Preise sind Endpreise; gemäß § 19 UStG wird keine Umsatzsteuer berechnet."],
+   ["Was, wenn ich Änderungen wünsche?","Eine Korrekturrunde ist in jedem Paket enthalten. Jede weitere Runde kostet 50 €."],
+   ["Welche Formate erhalte ich?","Immobilienfilm: Querformat 16:9. Luxus-Immobilienfilm: Hochformat 9:16 und Querformat 16:9. Signature: Formate nach Ihrer Wahl. Zusätzliche Formate sind für 100 € möglich."],
+   ["Kann ich weitere Bereiche hinzufügen?","Ja, jeder zusätzliche Bereich kostet 100 €."]
+  ]
+ },
+ en:{
+  skip:"Skip to content", nav_home:"Home", nav_about:"About us", nav_packages:"Packages", nav_process:"Our process", nav_contact:"Contact", faq_short:"FAQ",
+  hero_tag:"LET YOUR SPACE BREATHE.<br>CAPTURE THE FEELING.",
+  hero_lead:"In today's digital world, guests choose with their eyes. A cinematic property film captures the atmosphere, highlights the details and sells the story of your property in a way photos simply can't.",
+  cta_packages:"View packages", cta_example:"See the example", cta_why:"Why book us?", cta_start:"Start your film", scroll:"Scroll to explore",
+  alt_villa:"Modern luxury villa with infinity pool at dusk",
+  alt_before:"Before: still photo of the living room", alt_after:"After: cinematic camera move through the living room",
+  alt_bed:"Bedroom with skyline view", alt_balc:"Balcony in evening light", alt_bath:"Bathroom with walk-in shower", alt_kitchen:"Kitchen and dining area with marble table",
+  art_title:"THE ART OF PROPERTY FILMS", art_sub:"Make them feel your property, not just see it.",
+  art_box:"Every property has a story to tell. Through cinematic visuals, thoughtful details and carefully crafted movement, we transform your space into an experience that captures attention and inspires guests.",
+  art_example:"Example of one shot", before:"Before", after:"After", drag:"Drag to compare", compare_aria:"Compare before and after",
+  before_text:"Static photos capture a moment, but cannot fully convey the atmosphere, movement and emotion of your property.",
+  after_text:"Cinematic visuals, carefully selected music and professionally adapted formats bring your property to life – ready to stand out across social media, booking platforms and websites.",
+  ben_title:"WHY A PROPERTY FILM?", ben_sub:"The benefits",
+  b1_t:"Stronger first impression", b1_p:"Stand out from the competition and grab attention immediately.",
+  b2_t:"Showcase the experience", b2_p:"Highlight the unique atmosphere, design and lifestyle your property offers.",
+  b3_t:"Increased visibility", b3_p:"Videos help properties stand out, attract more attention and receive more bookings.",
+  b4_t:"Premium positioning", b4_p:"A high-end film communicates value and justifies your premium rates.",
+  nocrew:"No crew. No shoot day. No disruption. True to your property.",
+  use_title:"WHERE TO USE YOUR FILM", use1:"Airbnb listing", use2:"Social media", use3:"Website & landing pages", use4:"Email marketing & direct booking",
+  about_title:"ABOUT US", about_tag:"A PHOTO SHOWS A ROOM.<br>A FILM LETS YOU FEEL IT.",
+  about_p1:"Breathing Frames began with a simple observation: guests don't just book a place, they book a feeling. Yet most properties are shown in still photos that capture how a room looks, but not how it feels: the light moving through a window, the calm of a terrace, the moment before you step inside.",
+  about_p2:"That is where our name comes from. We wanted images that breathe. Still photos, given movement, light and atmosphere, so a space comes alive before anyone arrives.",
+  what_title:"WHAT WE DO",
+  what_p:"We turn your photos into cinematic property films. Using modern AI-assisted technology, we add smooth camera movement, light and carefully chosen music to the photos you send us. Nothing more. Every room, view and detail stays exactly as it is, because a film should never promise more than your property delivers.",
+  why_title:"WHY BOOK US?",
+  w1_t:"No crew, no shoot day", w1_p:"Nobody visits, no blocked calendar, no disruption for your guests.",
+  w2_t:"Fast turnaround", w2_p:"Your preview in days, wherever your property is in the world.",
+  w3_t:"Ready for every platform", w3_p:"Airbnb, website, social media and email, horizontal and vertical.",
+  w4_t:"Fairly priced", w4_p:"Three clear packages, 50 % deposit, 50 % on approval.",
+  w5_t:"True to your property", w5_p:"We only add movement and light.",
+  w6_t:"Made to be loved", w6_p:"A preview, one revision round and our promise that we don't stop until you love the result.",
+  pk_title:"OUR PACKAGES", pk_tag:"OUR FILM PACKAGES.<br>TAILORED TO YOUR PROPERTY.",
+  p1_name:"Property film", p1_1:"20–30 seconds", p1_2:"Up to 4 selected interior areas", p1_5:"Horizontal format (16:9)", p1_6:"Ideal for Airbnb, website", p1_8:"About 3 business days",
+  p2_name:"Luxury property film", p2_1:"40–60 seconds", p2_2:"Up to 8 selected areas", p2_6:"Vertical (9:16) + horizontal (16:9)", p2_9:"About 3–5 business days",
+  p3_name:"Signature property film", p3_1:"Custom film duration", p3_2:"Full property coverage", p3_5:"Professional editing & music", p3_6:"Choice of video formats", p3_9:"5–7 business days",
+  f_cam:"Cinematic camera movement", f_edit:"Professional editing", f_prev:"Preview & one revision", f_inex:"Interior & exterior", f_all:"Perfect for all platforms",
+  from:"Starting at", vat:"Final prices. No VAT charged according to § 19 UStG.", choose:"Choose package",
+  inc_title:"Included in every package", inc_prev:"Preview", inc_true:"True-to-property promise", inc_rev:"One revision round",
+  ex_title:"Extras", ex1:"Extra revision round", ex2:"Extra formats", ex3:"Extra area added",
+  pr_title:"OUR PROCESS",
+  s1_t:"Plan & booking", s1_p:"Choose your preferred package and discuss your individual requirements.",
+  s2_t:"Payment & confirmation", s2_p:"A 50% deposit secures your booking and confirms the project.",
+  s3_t:"Photo exchange", s3_p:"Share photos from the required areas.",
+  s4_t:"Preview & revision", s4_p:"Review your initial preview and let us know which adjustments you would like.",
+  s5_t:"Final payment", s5_p:"Approve the revised film and complete the remaining 50% payment.",
+  s6_t:"Final delivery", s6_p:"Receive your finished film, ready to show your property.",
+  t1_t:"Delivery time", t1_p:"3–7 business days (depending on the package)", t2_t:"Revisions", t2_p:"One round of revisions included (additional rounds can be requested at €50 per round)", t3_t:"Satisfaction", t3_p:"We work closely with you to ensure the final film meets your expectations.",
+  faq_title:"MOST FREQUENT QUESTIONS",
+  band:"Your property already has a story. Let's let it breathe.",
+  ct_title:"LET'S BRING YOUR PROPERTY TO LIFE", ct_intro:"Tell us about your property and your preferred package – we'll get back to you with the next steps.",
+  f_name:"Full name", f_prop:"Property name", f_mail:"Email address", f_pkg:"Select your package", f_msg:"Your message",
+  o_p1:"#01 Property film", o_p2:"#02 Luxury property film", o_p3:"#03 Signature property film", o_unsure:"Not sure yet",
+  f_consent:"I agree that my details are used to process my inquiry.",
+  e_name:"Please enter your name.", e_mail:"Please enter a valid email address.", e_pkg:"Please choose a package or “Not sure yet”.", e_consent:"Please confirm your consent.",
+  send:"Send inquiry", ok_title:"Almost done",
+  ok_text:"Your email app is opening with your prepared inquiry – please send it from there. If nothing opens, copy your message and send it to:",
+  copy:"Copy message", copied:"Copied",
+  slogan:"Your property deserves to be felt, not just seen.", ready:"Ready to bring your property to life?",
+  mail_subject:"Property film inquiry", m_name:"Name", m_prop:"Property", m_mail:"Email", m_pkg:"Package", m_msg:"Message",
+  title:"Breathing Frames – Cinematic Property Films", menu_open:"Open menu", menu_close:"Close menu",
+  faq:[
+   ["Do you need to visit my property?","No. You send us photos of the selected areas, and we create your film from them. No crew, no shoot day, no blocked bookings."],
+   ["Which photos should I send?","Landscape photos in the highest resolution you have – taken in daylight, with lights on and the room tidy. Ideally each room from two corners."],
+   ["Will the film change how my property looks?","No. We only add movement and light. Every room, view and detail stays as it is – a film should never promise more than your property delivers."],
+   ["How long does it take?","About 3 business days for the Property Film, about 3–5 for the Luxury Property Film and 5–7 for the Signature Property Film."],
+   ["How does payment work?","A 50 % deposit secures your booking; the remaining 50 % is due once you approve the final film. All prices are final prices; no VAT is charged according to § 19 UStG."],
+   ["What if I want changes?","One revision round is included in every package. Each additional round costs €50."],
+   ["Which formats do I get?","Property Film: horizontal 16:9. Luxury Property Film: vertical 9:16 and horizontal 16:9. Signature: formats of your choice. Extra formats can be added for €100."],
+   ["Can I add more areas?","Yes, each additional area costs €100."]
+  ]
+ }
+};
+
+Object.assign(T.de,{
+  a_ok_title:"Vielen Dank!", a_ok_text:"Ihre Anfrage ist bei uns angekommen. Wir melden uns in Kürze per E-Mail bei Ihnen.",
+  a_tag1:"Lassen Sie Ihren Raum atmen.", a_tag2:"Fangen Sie das <em>Gefühl</em> ein.",
+  a_alt_orbit:"Moderne Luxusvilla mit Infinity-Pool, die sich beim Scrollen dreht",
+  a_photo1:"Ein Foto zeigt einen Raum.", a_photo2:"Ein Film lässt ihn <em>spüren</em>.",
+  a_ben_t:"Warum ein Immobilienfilm?", a_use_t:"Wo Sie Ihren Film einsetzen",
+  a_what_t:"Was wir tun", a_why_t:"Warum wir?",
+  a_pk_t:"Unsere Pakete", a_pk_s:"Unsere Filmpakete. Maßgeschneidert für Ihre Immobilie.",
+  a_pr_t:"Unser Ablauf", a_faq_t:"Häufige Fragen", a_ct_t:"Lassen Sie uns Ihre Immobilie zum Leben erwecken"
+});
+Object.assign(T.en,{
+  a_ok_title:"Thank you!", a_ok_text:"Your inquiry has reached us. We'll get back to you by email shortly.",
+  a_tag1:"Let your space breathe.", a_tag2:"Capture the <em>feeling</em>.",
+  a_alt_orbit:"Modern luxury villa with infinity pool turning as you scroll",
+  a_photo1:"A photo shows a room.", a_photo2:"A film lets you <em>feel</em> it.",
+  a_ben_t:"Why a property film?", a_use_t:"Where to use your film",
+  a_what_t:"What we do", a_why_t:"Why book us?",
+  a_pk_t:"Our packages", a_pk_s:"Our film packages. Tailored to your property.",
+  a_pr_t:"Our process", a_faq_t:"Most frequent questions", a_ct_t:"Let's bring your property to life"
+});
+
+var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+if(reduce) document.documentElement.classList.add("rm");
+var lang = "en";
+try{ var sv = localStorage.getItem("bf-lang"); if(sv==="de"||sv==="en") lang = sv; }catch(e){}
+
+function eur(n,l){ return l==="en" ? "€" + n.toLocaleString("en-US") : n.toLocaleString("de-DE") + " €"; }
+var plus = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+
+/* word-split helpers */
+function splitWords(el, text){
+  el.textContent = "";
+  text.split(/\s+/).forEach(function(w, i){ if(i) el.appendChild(document.createTextNode(" ")); var s = document.createElement("span"); s.className = "wd"; s.textContent = w; el.appendChild(s); });
+}
+var leadEl = document.getElementById("lead"), linesEl = document.getElementById("lines");
+function buildLines(text){
+  linesEl.innerHTML = "";
+  text.split(/(?<=\.)\s+/).forEach(function(l){ var s = document.createElement("span"); s.className = "ln"; s.textContent = l; linesEl.appendChild(s); });
+}
+function buildFaq(){
+  var list = document.getElementById("faq-list"); list.innerHTML = "";
+  T[lang].faq.forEach(function(q, i){
+    var d = document.createElement("div"); d.className = "qa";
+    d.innerHTML = '<button type="button" aria-expanded="false" aria-controls="ans'+i+'" id="q'+i+'"><span></span><span class="pm">'+plus+'</span></button><div class="ans" id="ans'+i+'" role="region" aria-labelledby="q'+i+'"><div><p></p></div></div>';
+    d.querySelector("button span").textContent = q[0];
+    d.querySelector("p").textContent = q[1];
+    d.querySelector("button").addEventListener("click", function(){ var o = d.hasAttribute("open"); o ? d.removeAttribute("open") : d.setAttribute("open",""); this.setAttribute("aria-expanded", String(!o)); });
+    list.appendChild(d);
+  });
+}
+function splitHead(el){
+  el.querySelectorAll(".w").forEach(function(w){ var wi = w.firstChild; while(wi.firstChild) w.parentNode.insertBefore(wi.firstChild, w); w.parentNode.removeChild(w); });
+  el.normalize();
+  var nodes = Array.prototype.slice.call(el.childNodes), i = 0; el.innerHTML = "";
+  function mk(child){ var w = document.createElement("span"); w.className = "w"; var wi = document.createElement("span"); wi.className = "wi"; wi.style.setProperty("--i", i++); wi.appendChild(child); w.appendChild(wi); return w; }
+  nodes.forEach(function(n){
+    if(n.nodeType === 3){ n.textContent.split(/(\s+)/).forEach(function(part){ if(!part) return; if(/^\s+$/.test(part)){ el.appendChild(document.createTextNode(" ")); return; } el.appendChild(mk(document.createTextNode(part))); }); }
+    else el.appendChild(mk(n));
+  });
+}
+function applyLang(l){
+  lang = l; var t = T[l];
+  document.documentElement.lang = l; document.title = t.title;
+  document.querySelectorAll("[data-i18n]").forEach(function(el){ var k = el.getAttribute("data-i18n"); if(t[k]!=null) el.textContent = t[k]; });
+  document.querySelectorAll("[data-i18n-html]").forEach(function(el){ var k = el.getAttribute("data-i18n-html"); if(t[k]!=null) el.innerHTML = t[k]; });
+  document.querySelectorAll("[data-i18n-alt]").forEach(function(el){ var k = el.getAttribute("data-i18n-alt"); if(t[k]) el.alt = t[k]; });
+  document.querySelectorAll("[data-i18n-aria]").forEach(function(el){ var k = el.getAttribute("data-i18n-aria"); if(t[k]) el.setAttribute("aria-label", t[k]); });
+  document.querySelectorAll(".amount[data-price]").forEach(function(el){ el.textContent = eur(+el.getAttribute("data-price"), l); });
+  document.querySelectorAll("[data-eur]").forEach(function(el){ var v = eur(+el.getAttribute("data-eur"), l); el.textContent = el.hasAttribute("data-from") ? (l==="de" ? "ab " : "from ") + v : v; });
+  document.querySelectorAll(".lang button").forEach(function(b){ b.setAttribute("aria-pressed", String(b.getAttribute("data-lang")===l)); });
+  burger.setAttribute("aria-label", document.body.classList.contains("menu-open") ? t.menu_close : t.menu_open);
+  splitWords(leadEl, t.hero_lead); buildLines(t.nocrew); buildFaq();
+  document.querySelectorAll(".headline").forEach(splitHead);
+  try{ localStorage.setItem("bf-lang", l); }catch(e){}
+  tick(true);
+}
+
+/* nav + menu */
+var nav = document.getElementById("nav"), burger = document.querySelector(".burger"), mm = document.getElementById("mmenu"), lenis = null;
+function setMenu(open){
+  document.body.classList.toggle("menu-open", open);
+  burger.setAttribute("aria-expanded", String(open)); mm.setAttribute("aria-hidden", String(!open));
+  burger.setAttribute("aria-label", open ? T[lang].menu_close : T[lang].menu_open);
+  if(lenis){ open ? lenis.stop() : lenis.start(); } else { document.documentElement.style.overflow = open ? "hidden" : ""; }
+}
+burger.addEventListener("click", function(){ setMenu(!document.body.classList.contains("menu-open")); });
+document.addEventListener("keydown", function(e){ if(e.key==="Escape" && document.body.classList.contains("menu-open")) setMenu(false); });
+document.querySelectorAll(".lang button").forEach(function(b){ b.addEventListener("click", function(){ applyLang(b.getAttribute("data-lang")); }); });
+document.querySelectorAll('a[href^="#"]').forEach(function(a){
+  a.addEventListener("click", function(e){
+    var id = a.getAttribute("href"); if(id.length < 2) return;
+    var el = document.querySelector(id); if(!el) return;
+    e.preventDefault();
+    var pick = a.getAttribute("data-pick"); if(pick){ var r = document.querySelector('input[name="package"][value="'+pick+'"]'); if(r) r.checked = true; }
+    if(document.body.classList.contains("menu-open")) setMenu(false);
+    var y = id==="#home" ? 0 : el.getBoundingClientRect().top + window.scrollY - nav.offsetHeight + 1;
+    if(id==="#art") y += window.innerHeight * 1.2;
+    if(lenis) lenis.scrollTo(y, {duration: 1.4}); else window.scrollTo({top: y, behavior: reduce ? "auto" : "smooth"});
+  });
+});
+
+/* ---------- scroll scenes ---------- */
+function clamp(v,a,b){ return v < a ? a : v > b ? b : v; }
+function ramp(p,a,b){ return clamp((p - a) / (b - a), 0, 1); }
+function ease(t){ return t < .5 ? 4*t*t*t : 1 - Math.pow(-2*t + 2, 3) / 2; }
+function progress(sec){ var r = sec.getBoundingClientRect(), d = sec.offsetHeight - window.innerHeight; return d <= 0 ? 0 : clamp(-r.top / d, 0, 1); }
+var scenes = {}; document.querySelectorAll("[data-scene]").forEach(function(s){ scenes[s.getAttribute("data-scene")] = s; });
+
+/* hero orbit */
+var cv = document.getElementById("orbit"), ctx = cv.getContext("2d"), N = 100, imgs = new Array(N), loaded = new Array(N);
+var shown = 0, target = 0, cw = 0, ch = 0, dpr = 1, heroP = 0, lastDrawn = -1;
+function src(i){ return "assets/orbit/" + ("00" + i).slice(-3) + ".webp"; }
+function load(i){ if(imgs[i]) return; var im = new Image(); im.decoding = "async"; im.onload = function(){ loaded[i] = true; if(i===0 || Math.abs(i - Math.round(shown)) < 3) lastDrawn = -1; }; im.src = src(i); imgs[i] = im; }
+var order = [], seen = {}; [16,8,4,2,1].forEach(function(s){ for(var i=0;i<N;i+=s){ if(!seen[i]){ seen[i]=1; order.push(i); } } }); if(!seen[N-1]) order.push(N-1);
+load(0); var oi = 0; (function pump(){ for(var k=0;k<6 && oi<order.length;k++) load(order[oi++]); if(oi < order.length) setTimeout(pump, 60); })();
+function nearest(i){ if(loaded[i]) return i; for(var d=1; d<N; d++){ if(i-d>=0 && loaded[i-d]) return i-d; if(i+d<N && loaded[i+d]) return i+d; } return -1; }
+function sizeCanvas(){ dpr = Math.min(window.devicePixelRatio || 1, 2); cw = cv.clientWidth; ch = cv.clientHeight; cv.width = Math.round(cw*dpr); cv.height = Math.round(ch*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); lastDrawn = -1; }
+function drawHero(){
+  var i = nearest(Math.round(shown)); if(i < 0) return;
+  var key = i + ":" + heroP.toFixed(3); if(key === lastDrawn) return; lastDrawn = key;
+  var im = imgs[i], iw = im.naturalWidth, ih = im.naturalHeight, s = 0.74 + 0.26 * ease(heroP), lift = ease(ramp(heroP, .48, .78));
+  var portrait = ch > cw, dw, dh, cx, by;
+  if(portrait){ dw = cw * 1.75 * (s/0.9); dh = dw * ih / iw; cx = cw * 0.46; by = ch * (0.93 - 0.24 * lift); }
+  else { dw = Math.min(cw * 0.94, ch * 1.62) * s; dh = dw * ih / iw; cx = cw / 2; by = ch * (0.99 - 0.16 * lift); }
+  ctx.fillStyle = "#f4f0e8"; ctx.fillRect(0, 0, cw, ch);
+  ctx.drawImage(im, cx - dw/2, by - dh, dw, dh);
+}
+var heroLineH = scenes.hero.querySelector(".line2 .headline"), heroCopy = scenes.hero.querySelector(".copy"), heroLine = scenes.hero.querySelector(".line2"), hint = scenes.hero.querySelector(".hint");
+function heroScene(p){
+  heroP = p; target = Math.min(1, p / 0.9) * (N - 1);
+  var a = 1 - ramp(p, .14, .32); heroCopy.style.opacity = a; heroCopy.style.transform = "translateY(" + (-p * 120).toFixed(1) + "px)";
+  heroCopy.style.visibility = a < .01 ? "hidden" : "";
+  var b = ramp(p, .62, .76); heroLine.style.opacity = b; heroLine.style.transform = "translateY(" + ((1 - b) * 30).toFixed(1) + "px)";
+  heroLine.style.visibility = b < .01 ? "hidden" : ""; heroLine.style.pointerEvents = b < .5 ? "none" : ""; if(!reduce) heroLineH.classList.toggle("in", b > .12);
+  hint.style.opacity = p > .03 ? 0 : 1;
+}
+/* statement */
+function statementScene(p){ var w = leadEl.querySelectorAll(".wd"), n = w.length, k = ramp(p, .08, .82) * n; for(var i=0;i<n;i++){ w[i].style.opacity = (i < k ? 1 : .14); } }
+/* photo -> film */
+var t2H = document.querySelector("#frame .t2 .headline"), frame = document.getElementById("frame"), fImg = frame.querySelector("img"), fVid = frame.querySelector("video"), t1 = scenes.film.querySelector(".t1"), t2 = frame.querySelector(".t2"), chB = frame.querySelector(".chip.before"), chA = frame.querySelector(".chip.after"), vidOn = false;
+function filmScene(p, vw, vh){
+  var e = ease(ramp(p, .16, .58));
+  var w0, h0, y0, r = 28 * (1 - e);
+  if(vw < 700){
+    y0 = t1.offsetTop + t1.offsetHeight + 22;
+    w0 = vw * 0.86; h0 = Math.max(vh * 0.3, Math.min(w0 * 1.2, vh - y0 - 28));
+  } else {
+    w0 = Math.min(vw * 0.5, 720); h0 = w0 * 0.66; y0 = vh * 0.56 - h0 * 0.44;
+  }
+  var w = w0 + (vw - w0) * e, h = h0 + (vh - h0) * e;
+  frame.style.width = w + "px"; frame.style.height = h + "px"; frame.style.borderRadius = r + "px";
+  frame.style.top = (y0 * (1 - e)) + "px";
+  var a = 1 - ramp(p, .08, .22); t1.style.opacity = a; t1.style.visibility = a < .01 ? "hidden" : ""; t1.style.transform = vw < 700 ? "" : "translateY(" + (-p * 90).toFixed(1) + "px)";
+  var v = ramp(p, .42, .6); fVid.style.opacity = v; chB.style.opacity = 1 - v; chA.style.opacity = v * (1 - ramp(p, .6, .7));
+  var t2a = ramp(p, .62, .76); t2.style.opacity = t2a; if(!reduce) t2H.classList.toggle("in", t2a > .08);
+  var want = p > .3 && p < .999;
+  if(want !== vidOn){ vidOn = want; if(want){ var pr = fVid.play(); if(pr && pr.catch) pr.catch(function(){}); } else fVid.pause(); }
+}
+/* nocrew */
+function nocrewScene(p){ var l = linesEl.children, n = l.length; for(var i=0;i<n;i++){ l[i].classList.toggle("on", p >= .1 + i * (.62 / n)); } }
+/* rooms */
+var track = document.getElementById("track");
+function roomsScene(p, vw){ var max = Math.max(0, track.scrollWidth - vw); track.style.transform = "translateX(" + (-ease(ramp(p, .06, .94)) * max).toFixed(1) + "px)"; }
+
+var drifts = Array.prototype.slice.call(document.querySelectorAll("[data-drift]")), pTiles = Array.prototype.slice.call(document.querySelectorAll(".boxes .tile"));
+function motionScene(){
+  drifts.forEach(function(el){ var r = el.getBoundingClientRect(); if(r.bottom < -100 || r.top > vh + 100) return; var k = clamp((r.top + r.height/2) / vh, -0.2, 1.2) - 0.5; el.style.translate = "0 " + (k * 60).toFixed(1) + "px"; el.style.scale = String((1 + Math.max(0, -k) * 0 + (0.5 - Math.abs(k)) * 0.08).toFixed(3)); });
+  pTiles.forEach(function(el, i){ var r = el.getBoundingClientRect(); if(r.bottom < -200 || r.top > vh + 200) return; var k = (r.top + r.height/2) / vh - 0.5; var sp = [24, 56, 38][i % 3]; el.style.translate = "0 " + (k * sp).toFixed(1) + "px"; });
+}
+var vw = window.innerWidth, vh = window.innerHeight;
+function tick(force){
+  if(reduce){
+    heroScene(0); statementScene(1); filmScene(1, vw, vh); nocrewScene(1); shown = 0; drawHero(); return;
+  }
+  heroScene(progress(scenes.hero)); statementScene(progress(scenes.statement)); filmScene(progress(scenes.film), vw, vh);
+  nocrewScene(progress(scenes.nocrew)); if(scenes.rooms) roomsScene(progress(scenes.rooms), vw); motionScene();
+  nav.classList.toggle("scrolled", window.scrollY > 24);
+}
+function loop(){
+  shown += (target - shown) * 0.18; if(Math.abs(target - shown) < 0.01) shown = target;
+  drawHero(); requestAnimationFrame(loop);
+}
+window.addEventListener("scroll", function(){ tick(); }, {passive:true});
+window.addEventListener("resize", function(){ vw = window.innerWidth; vh = window.innerHeight; sizeCanvas(); tick(); });
+sizeCanvas();
+
+/* reveals */
+document.querySelectorAll(".headline").forEach(function(h){ h.classList.remove("rv","d1","d2","d3","d4","d5"); });
+
+if("IntersectionObserver" in window && !reduce){
+  var ho = new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("in"); ho.unobserve(x.target); } }); }, {rootMargin:"0px 0px -12% 0px"});
+  document.querySelectorAll(".headline").forEach(function(h){ if(!h.closest(".hero") && !h.closest(".t2")) ho.observe(h); });
+  var hh = document.querySelectorAll(".hero .copy .headline"); setTimeout(function(){ hh.forEach(function(h){ h.classList.add("in"); }); }, 150);
+  var co = new IntersectionObserver(function(en){
+    var hits = en.filter(function(x){ return x.isIntersecting; }).sort(function(a, b){ var ra = a.boundingClientRect, rb = b.boundingClientRect; return (ra.top - rb.top) || (ra.left - rb.left); });
+    hits.forEach(function(x, i){ x.target.style.setProperty("--d", (i * 0.14) + "s"); x.target.classList.add("in"); co.unobserve(x.target); });
+  }, {rootMargin:"0px 0px -18% 0px", threshold:.2});
+  document.querySelectorAll(".card").forEach(function(c){ co.observe(c); });
+  var ro = new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ x.target.classList.add("in"); ro.unobserve(x.target); } }); }, {rootMargin:"0px 0px -10% 0px"});
+  document.querySelectorAll(".rv").forEach(function(el){ ro.observe(el); });
+  var steps = Array.prototype.slice.call(document.querySelectorAll(".step")), meter = document.getElementById("meter");
+  var so = new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ var idx = steps.indexOf(x.target); steps.forEach(function(s,i){ s.classList.toggle("on", i <= idx); }); meter.style.setProperty("--p", (idx + 1) / steps.length); } }); }, {rootMargin:"-45% 0px -45% 0px"});
+  steps.forEach(function(s){ so.observe(s); });
+} else { document.querySelectorAll(".rv,.step,.headline,.card").forEach(function(el){ el.classList.add("in","on"); }); }
+
+/* compare slider */
+var cmp = document.getElementById("compare"), knob = cmp.querySelector(".knob"), cVid = cmp.querySelector("video"), pos = 50;
+function setPos(v){ pos = clamp(v, 0, 100); cmp.style.setProperty("--pos", pos + "%"); knob.setAttribute("aria-valuenow", Math.round(pos)); }
+function fromEv(e){ var r = cmp.getBoundingClientRect(); return (e.clientX - r.left) / r.width * 100; }
+var drag = false, sx = 0, sy = 0, dec = false;
+cmp.addEventListener("pointerdown", function(e){ drag = true; dec = e.pointerType !== "touch"; sx = e.clientX; sy = e.clientY; if(dec){ cmp.setPointerCapture(e.pointerId); setPos(fromEv(e)); } cmp.classList.add("touched"); });
+cmp.addEventListener("pointermove", function(e){ if(!drag) return; if(!dec){ var dx = Math.abs(e.clientX - sx), dy = Math.abs(e.clientY - sy); if(dx < 6 && dy < 6) return; if(dy > dx){ drag = false; return; } dec = true; cmp.setPointerCapture(e.pointerId); } setPos(fromEv(e)); });
+function endD(e){ if(drag && !dec && e.type === "pointerup") setPos(fromEv(e)); drag = false; }
+cmp.addEventListener("pointerup", endD); cmp.addEventListener("pointercancel", endD);
+knob.addEventListener("keydown", function(e){ var st = e.shiftKey ? 10 : 4;
+  if(e.key==="ArrowLeft"||e.key==="ArrowDown"){ setPos(pos - st); e.preventDefault(); cmp.classList.add("touched"); }
+  if(e.key==="ArrowRight"||e.key==="ArrowUp"){ setPos(pos + st); e.preventDefault(); cmp.classList.add("touched"); }
+  if(e.key==="Home"){ setPos(0); e.preventDefault(); } if(e.key==="End"){ setPos(100); e.preventDefault(); } });
+setPos(50);
+if("IntersectionObserver" in window){
+  new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting){ var pr = cVid.play(); if(pr && pr.catch) pr.catch(function(){}); } else cVid.pause(); }); }, {threshold:.2}).observe(cVid);
+  if(!reduce){ var swept = false; new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting && !swept){ swept = true; var t0 = performance.now(); (function sw(t){ if(cmp.classList.contains("touched")) return; var k = (t - t0) / 2200; if(k > 1) k = 1; setPos(50 + Math.sin(k * Math.PI * 2) * 22); if(k < 1) requestAnimationFrame(sw); })(t0); } }); }, {threshold:.6}).observe(cmp); }
+}
+
+/* form */
+var form = document.getElementById("inquiry"), lastMsg = "";
+function fErr(n, bad){ var f = form.querySelector('[data-f="' + n + '"]'); if(f) f.classList.toggle("invalid", bad); return bad; }
+form.addEventListener("submit", function(e){
+  e.preventDefault();
+  var t = T[lang], d = new FormData(form), name = (d.get("name")||"").trim(), mail = (d.get("email")||"").trim(), pkg = d.get("package"), ok = true;
+  if(fErr("name", !name)) ok = false;
+  if(fErr("email", !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail))) ok = false;
+  if(fErr("package", !pkg)) ok = false;
+  if(fErr("consent", !d.get("consent"))) ok = false;
+  if(!ok){ var first = form.querySelector(".invalid input, .invalid textarea"); if(first) first.focus(); return; }
+  var pl = {p1:t.o_p1, p2:t.o_p2, p3:t.o_p3, unsure:t.o_unsure}[pkg];
+  lastMsg = t.m_name + ": " + name + "\n" + t.m_prop + ": " + ((d.get("property")||"").trim() || "–") + "\n" + t.m_mail + ": " + mail + "\n" + t.m_pkg + ": " + pl + "\n\n" + t.m_msg + ":\n" + ((d.get("message")||"").trim() || "–");
+  form.querySelector('[name="package_name"]').value = pl;
+  var btn = form.querySelector('button[type="submit"]'); btn.disabled = true;
+  function viaMail(){ form.classList.add("done", "fallback"); try{ window.location.href = "mailto:hello@breathingframes.com?subject=" + encodeURIComponent(t.mail_subject + " – " + name) + "&body=" + encodeURIComponent(lastMsg); }catch(err){} }
+  var body = new URLSearchParams(new FormData(form)).toString();
+  fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body: body})
+    .then(function(r){ btn.disabled = false; if(r.ok){ form.classList.add("done"); form.classList.remove("fallback"); } else viaMail(); })
+    .catch(function(){ btn.disabled = false; viaMail(); });
+});
+form.querySelectorAll("input,textarea").forEach(function(i){ ["input","change"].forEach(function(ev){ i.addEventListener(ev, function(){ var f = i.closest(".field"); if(f) f.classList.remove("invalid"); }); }); });
+document.getElementById("copy-msg").addEventListener("click", function(){ var s = this.querySelector("span"); function done(){ s.textContent = T[lang].copied; setTimeout(function(){ s.textContent = T[lang].copy; }, 2200); } try{ navigator.clipboard.writeText("To: hello@breathingframes.com\n\n" + lastMsg).then(done, function(){}); }catch(e){} });
+
+/* nav active */
+var navLinks = Array.prototype.slice.call(document.querySelectorAll(".menu a.nl"));
+if("IntersectionObserver" in window){
+  var no = new IntersectionObserver(function(en){ en.forEach(function(x){ if(x.isIntersecting) navLinks.forEach(function(l){ l.classList.toggle("active", l.getAttribute("href") === "#" + x.target.id); }); }); }, {rootMargin:"-45% 0px -50% 0px"});
+  ["home","about","packages","process"].forEach(function(id){ var el = document.getElementById(id); if(el) no.observe(el); });
+}
+
+/* smooth scroll */
+if(window.Lenis && !reduce){
+  try{ lenis = new Lenis({lerp: .1, smoothWheel: true}); (function raf(t){ lenis.raf(t); requestAnimationFrame(raf); })(performance.now()); lenis.on("scroll", function(){ tick(); }); }catch(e){ lenis = null; }
+}
+
+applyLang(lang);
+requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
