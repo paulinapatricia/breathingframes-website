@@ -1,2 +1,7 @@
 [build]
   publish = "."
+
+[[headers]]
+  for = "/tmp-upload/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
