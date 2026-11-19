@@ -582,9 +582,9 @@ footer .fl{display:flex;gap:22px}
         <a href="https://www.instagram.com/breathingframes.films/" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-ig"/></svg>@breathingframes.films</a>
       </div>
     </div>
-    <form class="form" id="inquiry" name="inquiry" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+    <form class="form" id="inquiry" name="inquiry" method="POST" action="https://api.web3forms.com/submit" novalidate>
       <input type="hidden" name="form-name" value="inquiry"><input type="hidden" name="package_name" value="">
-      <p hidden><label>Leave empty <input name="bot-field"></label></p>
+      <input type="checkbox" name="botcheck" class="hp" style="display:none" tabindex="-1" autocomplete="off">
       <div class="fields">
         <div class="field" data-f="name"><label for="f-name" data-i18n="f_name">Vollständiger Name</label><input id="f-name" name="name" type="text" autocomplete="name" required><span class="err" data-i18n="e_name"></span></div>
         <div class="field" data-f="property"><label for="f-prop" data-i18n="f_prop">Name der Immobilie</label><input id="f-prop" name="property" type="text" autocomplete="organization"></div>
@@ -1017,9 +1017,9 @@ form.addEventListener("submit", function(e){
   form.querySelector('[name="package_name"]').value = pl;
   var btn = form.querySelector('button[type="submit"]'); btn.disabled = true;
   function viaMail(){ form.classList.add("done", "fallback"); try{ window.location.href = "mailto:hello@breathingframes.com?subject=" + encodeURIComponent(t.mail_subject + " – " + name) + "&body=" + encodeURIComponent(lastMsg); }catch(err){} }
-  var body = new URLSearchParams(new FormData(form)).toString();
-  fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body: body})
-    .then(function(r){ btn.disabled = false; if(r.ok){ form.classList.add("done"); form.classList.remove("fallback"); } else viaMail(); })
+  var payload = { access_key: "b4625e15-de1f-4bee-bfa3-e3ad1298b18b", subject: "Neue Anfrage über breathingframes.com – " + name, from_name: "Breathing Frames Website", replyto: mail, name: name, email: mail, property: (d.get("property")||"").trim(), package: pl, message: (d.get("message")||"").trim(), language: lang, botcheck: d.get("botcheck") ? true : "" };
+  fetch("https://api.web3forms.com/submit", {method:"POST", headers:{"Content-Type":"application/json", "Accept":"application/json"}, body: JSON.stringify(payload)})
+    .then(function(r){ return r.json().catch(function(){ return {}; }).then(function(j){ btn.disabled = false; if(r.ok && j.success !== false){ form.classList.add("done"); form.classList.remove("fallback"); } else viaMail(); }); })
     .catch(function(){ btn.disabled = false; viaMail(); });
 });
 form.querySelectorAll("input,textarea").forEach(function(i){ ["input","change"].forEach(function(ev){ i.addEventListener(ev, function(){ var f = i.closest(".field"); if(f) f.classList.remove("invalid"); }); }); });
